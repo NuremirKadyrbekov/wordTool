@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Текст в массив</title>
+</head>
+<body>
+    <h1>Введите текст:</h1>
+    <textarea id="textInput" rows="5" cols="40" placeholder="Введите текст здесь..."></textarea>
+    <button id="convertButton">Разбить текст на слова</button>
+    <p>Результат:</p>
+    <pre id="output"></pre>
+
+    <script>
+        document.getElementById("convertButton").addEventListener("click", function() {
+            // Получаем текст из поля ввода
+            const text = document.getElementById("textInput").value;
+
+            // Разбиваем текст на слова
+            const words = text.split(/\s+/).filter(word => word.length > 0);
+
+            // Выводим массив слов
+            document.getElementById("output").textContent = JSON.stringify(words, null, 2);
+        });
+    </script>
+</body>
+</html>
